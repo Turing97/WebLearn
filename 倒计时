@@ -1,0 +1,57 @@
+//通过定时器，每间隔一毫秒就自动刷新一次div的内容
+<!DOCTYPE html>
+<html>
+<head lang = "en">
+  <meta charset = "UTF-8">
+  <title></title>
+  <style>
+    div{
+        width: 1210px;
+        margin: 200px auto;
+        color: red;
+        text-align: center;
+        font: 600 30px/30px "simsum";
+       }
+     </style>
+</head>
+<body>
+<div></div>
+
+<script>
+  var div = document.getElementsByTagName("div")[0];
+  var timer = setInterval(fn,1);
+  
+  function fn(){
+    var nowtime = new Date();
+    var future = new Date("2019/02/03 11:20:00");
+    var timeSum = future.getTime() - nowtime.getTime();  
+    //获取时间差，目标时间减去现在的时间的毫秒差
+    var day = parseInt(timeSum / 1000 / 60 / 60 / 24);
+    var hour = parseInt(timeSum / 1000 / 60 / 60 % 24);
+    var minu = parseInt(timeSum / 1000 / 60 % 60);
+    var sec = parseInt(timeSum / 1000 % 60);
+    var millsec = parseInt(timeSum % 1000);
+    
+    //时间处理：所有的时间小于10的时候，在前面自动补0，毫秒值要补双0（比如说，把8秒改成08秒）
+    day = day < 10 ?"0" + day :day; //day小于10的话就补0，反之就不补充0
+    hour = hour < 10 ?"0" + hour : hour;
+    minu = minu < 10 ? "0" + minu : minu;
+    sec = sec < 10 ? "0" + sec : sec;
+    if (millsec < 10 ){
+      millsec = "00" + millsec;
+      
+    }else if (millsec < 100){
+      millsec = "0" + millsec;
+    }
+      //console.log(day);
+      //console.log(parseInt(timeSum/1000/60/60/24));
+     if(timeSum < 0){
+        div.innerHTML = "距离你设置的日期还有00天00小时00分00秒000毫秒";
+        clearInterval(timer);
+        return;
+     }
+     div.innerHTML = "距离设置的日期还有" + day + "天" + hour + "小时" + minu +"分" + sec + "秒" + millsec + "毫秒";
+    }
+ </script>     
+</body>
+</html>
