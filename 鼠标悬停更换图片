@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset = "UTF-8">
+  <title></title>
+  <script>
+    //windows.onload页面加载完成后再执行此代码
+    window.onload = function(){
+      //需求：鼠标放到img上，更换另一张图片，也就是修改路径（src值）
+      //步骤：
+      //1.获取事件源
+      //2.绑定事件
+      //3.书写事件驱动程序
+      
+      //1.获取事件源
+      var img = document.getElementById("box");
+      //2.绑定事件（悬停事件：鼠标进入到事件源中，立即触发事件）
+      img.onmouseover = function(){
+        //3.书写事件驱动程序（修改src）
+        img.src = "";
+        //this.src = "";
+        }
+      //2.绑定事件（悬停事件：鼠标进入到事件源中，立即出发该事件）
+      img.onmouseout = funciton(){
+          //3.书写事件驱动程序（修改src）
+          img.src = "";
+       }
+      }
+    </script>
+   </head>
+   <body>
+   <img id = "box" src = "" style = "cursor:pointer;border:1px solid #ccc;"/>
+   </body>
+ </html>
+          
