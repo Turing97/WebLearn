@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <style type="text/css">
+    div{
+      width: 100px;
+      height: 100px;
+      padding: 10px;
+      border: 10px solid #000;
+      margin: 100px;
+      background-color: pink;
+    }
+  </style>
+</head>
+<body>
+<div class="box">
+  <script type="text/javascript">
+    var div1 = document.getElementsByTagName("div")[0];
+
+    console.log(div1.offsetHeight);//打印结果：140（100+20+20）
+    console.log(typeof div1.offsetHeight);//打印结果：number
+    //offset代表的是盒子自身宽度或者高度+padding+border
+  </script>
+</div>
+</body>
+</html>
