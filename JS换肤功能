@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+
+<link id = '11' rel="stylesheet" type="text/css" href="1.css">
+<script type="text/javascript">
+  function skin1() {
+    var oL = document.getElementById('11');
+    oL.href = '1.css'
+    // body...
+  }
+  function skin2(){
+    var oL = document.getElementById('11');
+    oL.href='2.css'
+  }
+</script>
+</head>
+<body>
+<input type="button" value="皮肤1" onclick="skin1()">
+<input type="button" value="皮肤2" onclick="skin2()" >
+</body>
+</html>
